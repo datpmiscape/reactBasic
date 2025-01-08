@@ -19,11 +19,10 @@ class MyComponent extends React.Component {
   };
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state);
+    console.log(">>> check state: ", this.state);
   };
   render() {
     // let nameP = "DatPMiScape";
-
     return (
       <>
         <form>
@@ -46,9 +45,9 @@ class MyComponent extends React.Component {
           <br />
           <input type="submit" onClick={(event) => this.handleSubmit(event)} />
         </form>
-        <ChildComponent name={"child 1"} />
-        <ChildComponent name={"child 2"} />
-        <ChildComponent name={"child 3"} />
+        <ChildComponent name={"child 1"} age={"25"} />
+        <ChildComponent name={"child 2"} age={"26"} />
+        <ChildComponent name={"child 3"} age={"27"} />
       </>
     );
   }
