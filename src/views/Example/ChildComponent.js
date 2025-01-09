@@ -10,8 +10,13 @@ class ChildComponent extends React.Component {
       showJobs: !this.state.showJobs,
     });
   };
+
+  handleDeleteJob = (job) => {
+    this.props.deleteJob(job);
+  };
+
   render() {
-    let { job } = this.props;
+    let { jobs } = this.props;
     let { showJobs } = this.state;
     return (
       <>
@@ -22,10 +27,15 @@ class ChildComponent extends React.Component {
         ) : (
           <div>
             <div className="jobList">
-              {job.map((item, index) => {
+              {jobs.map((item, index) => {
                 return (
                   <div key={item.id}>
-                    {item.title} - {item.salary}$
+                    {item.title} - {item.salary}{" "}
+                    <span>
+                      <button onClick={() => this.handleDeleteJob(item)}>
+                        Delete
+                      </button>
+                    </span>
                   </div>
                 );
               })}
