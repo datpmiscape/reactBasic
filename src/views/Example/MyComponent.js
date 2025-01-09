@@ -6,9 +6,9 @@ class MyComponent extends React.Component {
     firstName: "",
     lastName: "",
     arrJobs: [
-      { id: "job01", title: "Developers", salary: "800$" },
-      { id: "job02", title: "Testers", salary: "700$" },
-      { id: "job03", title: "Project managers", salary: "2000$" },
+      { id: "job01", title: "Developers", salary: "800" },
+      { id: "job02", title: "Testers", salary: "700" },
+      { id: "job03", title: "Project managers", salary: "2000" },
     ],
   };
 
@@ -31,7 +31,7 @@ class MyComponent extends React.Component {
     return (
       <>
         <form>
-          <label htmlFor="fname">First name:</label>
+          <label htmlFor="fname">First name: {this.state.firstName}</label>
           <br />
           <input
             type="text"
@@ -39,7 +39,7 @@ class MyComponent extends React.Component {
             onChange={(event) => this.handleChangeFirstName(event)}
           />
           <br />
-          <label htmlFor="lname">Last name:</label>
+          <label htmlFor="lname">Last name: {this.state.lastName}</label>
           <br />
           <input
             type="text"
@@ -47,8 +47,9 @@ class MyComponent extends React.Component {
             onChange={(event) => this.handleChangeLastName(event)}
           />
           <br />
-          <br />
           <input type="submit" onClick={(event) => this.handleSubmit(event)} />
+          <br />
+          <br />
         </form>
         <ChildComponent
           name={this.state.firstName}
